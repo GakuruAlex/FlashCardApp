@@ -23,7 +23,7 @@ class Main:
        
         #countdown
         flashcard = FlashCard(window=window, timer=timer, canvas=canvas,back_image=back_image, front_image=front_image)
-        begin=Button(window, text="Begin", command=flashcard.time_countdown)
+        begin=Button(window, text="Begin", command=flashcard.start_countdown)
         begin.grid(row = 0, column=0)
 
         #buttons
