@@ -1,7 +1,7 @@
 from random import choice
 from time import strftime, gmtime
 from pandas import  read_csv
-from tkinter import PhotoImage
+from score_board import ScoreBoard
 class FlashCard:
     TITLE= ("Ariel", 10, "italic")
     TEXT = ("Ariel", 20, "bold")
@@ -20,7 +20,11 @@ class FlashCard:
     def start_countdown(self):
         if self.countdown is not None:
             self.window.after_cancel(self.countdown)
+        else:
+            #Prompt user for name
+            ScoreBoard(window=self.window)
         self.time_countdown(10)
+        
     def time_countdown(self, new_time):
         display_time = gmtime(new_time)
         time = strftime("%S", display_time)
