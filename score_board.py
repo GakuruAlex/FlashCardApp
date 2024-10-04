@@ -3,9 +3,11 @@ from tkinter import simpledialog, messagebox
 class ScoreBoard:
     def __init__(self, window):
         self.window = window
+        self.data = {}
         self.name = self.get_name()
         self.scores = []
         self.score = 0
+        
     def get_scores(self):
         try:
             with open("./scoreboard.json", "r") as scoreboard:
@@ -21,7 +23,7 @@ class ScoreBoard:
                 self.get_name()
             else:
                 self.scores = self.get_scores()
-            return name
+        return name
     def increase_score(self):
         self.score += 1
     def save_name_and_score(self):
