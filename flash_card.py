@@ -49,6 +49,7 @@ class FlashCard:
         self.english_word = self.data_dict[self.french_word]
         self.canvas.create_text(400, 150, text=f"ENGLISH", font=self.TITLE)
         self.canvas.create_text(400, 253, text=f"{self.english_word}", font=self.TEXT)
+        del self.data_dict[self.current_word]
 
     def clear_content(self):
         self.canvas.delete("all")
