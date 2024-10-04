@@ -2,6 +2,7 @@ from random import choice
 from time import strftime, gmtime
 from pandas import  read_csv
 from score_board import ScoreBoard
+from time import sleep
 class FlashCard:
     TITLE= ("Ariel", 10, "italic")
     TEXT = ("Ariel", 20, "bold")
@@ -29,7 +30,7 @@ class FlashCard:
         display_time = gmtime(new_time)
         time = strftime("%S", display_time)
         self.timer.config(text = f"{time}")
-        self.current_word = ""
+
         if new_time > 0:
             if new_time == 10:
                 self.clear_content()
@@ -37,6 +38,7 @@ class FlashCard:
             self.countdown =self.window.after(1000,  self.time_countdown,new_time - 1)
         elif new_time == 0:
             self.display_back_card()
+            
     def display_front_card(self):
         #front card
         self.canvas.create_image(400, 280, image=self.front_image)
@@ -49,9 +51,12 @@ class FlashCard:
         self.english_word = self.data_dict[self.french_word]
         self.canvas.create_text(400, 150, text=f"ENGLISH", font=self.TITLE)
         self.canvas.create_text(400, 253, text=f"{self.english_word}", font=self.TEXT)
-        del self.data_dict[self.current_word]
+        del self.data_dict[self.french_word]
 
     def clear_content(self):
         self.canvas.delete("all")
+    def run_all_cards(self):
+        if len(self.data_dict) > 0:
+            self.start_countdown()
 
 
