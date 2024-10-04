@@ -19,11 +19,15 @@ class ScoreBoard:
             answer = messagebox.askyesno(title="Name Exists", message="Name already exists do you want to change it ?")
             if answer == "yes":
                 self.get_name()
+            else:
+                self.scores = self.get_scores()
             return name
+    def increase_score(self):
+        self.score += 1
     def save_name_and_score(self):
         self.scores.append(self.score)
         try:
             with open("scoreboard.json", "w") as scoreboard:
                 dump({self.name: self.scores}, scoreboard, indent=4)
         except JSONDecodeError as e:
-            messagebox.ERROR(e)
+            messagebox.showerror(title="JSON Decode Error", message=f"{e}")
