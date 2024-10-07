@@ -2,7 +2,7 @@ from random import choice
 from time import strftime, gmtime
 from pandas import  read_csv
 from score_board import ScoreBoard
-from time import sleep
+
 class FlashCard:
     TITLE= ("Ariel", 10, "italic")
     TEXT = ("Ariel", 20, "bold")
@@ -25,7 +25,7 @@ class FlashCard:
             #Prompt user for name
             ScoreBoard(window=self.window)
         self.time_countdown(10)
-        
+
     def time_countdown(self, new_time):
         display_time = gmtime(new_time)
         time = strftime("%S", display_time)
@@ -38,7 +38,6 @@ class FlashCard:
             self.countdown =self.window.after(1000,  self.time_countdown,new_time - 1)
         elif new_time == 0:
             self.display_back_card()
-            
     def display_front_card(self):
         #front card
         self.canvas.create_image(400, 280, image=self.front_image)
