@@ -1,5 +1,6 @@
 from tkinter import Tk, Button, Label, PhotoImage, Canvas
 from flash_card import FlashCard
+
 class Main:
     BACKGROUND_COLOR = "#B1DDC6"
     WINDOW_WIDTH = 900
@@ -9,6 +10,9 @@ class Main:
     def ui(self):
         # main window
         window = Tk()
+        
+        
+
         window.title("Flash Card App")
         window.config(background=self.BACKGROUND_COLOR, height=self.WINDOW_HEIGHT,width=self.WINDOW_WIDTH , padx=50, pady= 20)
         #timer
@@ -23,17 +27,17 @@ class Main:
        
         #countdown
         flashcard = FlashCard(window=window, timer=timer, canvas=canvas,back_image=back_image, front_image=front_image)
-        begin=Button(window, text="Begin", command=flashcard.start_countdown)
+        begin=Button(window, text="Begin", command=flashcard.run_all_cards)
         begin.grid(row = 0, column=0)
-
+        
         #buttons
         #right button and image
         right_image = PhotoImage(file="./images/right.png")
-        right = Button(window, image=right_image, highlightthickness=0 )
+        right = Button(window, image=right_image, highlightthickness=0 , command=scoreboard.increase_score)
         right.grid(row=2, column=0)
         #wrong button and image
         wrong_image = PhotoImage(file="./images/wrong.png")
-        wrong = Button(window, image=wrong_image, highlightthickness= 0)
+        wrong = Button(window, image=wrong_image, highlightthickness= 0, command=scoreboard.got_wrong)
         wrong.grid(row=2, column=1)
         window.mainloop()
     def main(self):
