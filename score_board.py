@@ -1,5 +1,6 @@
 from json import load, dump, JSONDecodeError
 from tkinter import simpledialog, messagebox
+from flash_card import FlashCard
 class ScoreBoard:
     def __init__(self, window):
         self.window = window
@@ -7,6 +8,7 @@ class ScoreBoard:
         self.name = self.get_name()
         self.scores = []
         self.score = 0
+        self.flashcard = FlashCard()
         
     def get_scores(self):
         try:
@@ -26,6 +28,9 @@ class ScoreBoard:
         return name
     def increase_score(self):
         self.score += 1
+        self.flashcard.run_all_cards()
+    def got_wrong(self):
+        self.flashcard.run_all_cards()
     def save_name_and_score(self):
         self.scores.append(self.score)
         try:
