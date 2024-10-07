@@ -10,7 +10,7 @@ class Main:
     def ui(self):
         # main window
         window = Tk()
-        
+       
         
 
         window.title("Flash Card App")
@@ -32,12 +32,13 @@ class Main:
         
         #buttons
         #right button and image
+        scorecard = flashcard.get_scorecard()
         right_image = PhotoImage(file="./images/right.png")
-        right = Button(window, image=right_image, highlightthickness=0 , command=scoreboard.increase_score)
+        right = Button(window, image=right_image, highlightthickness=0 , command=scorecard.increase_score)
         right.grid(row=2, column=0)
         #wrong button and image
         wrong_image = PhotoImage(file="./images/wrong.png")
-        wrong = Button(window, image=wrong_image, highlightthickness= 0, command=scoreboard.got_wrong)
+        wrong = Button(window, image=wrong_image, highlightthickness= 0, command=scorecard.got_wrong)
         wrong.grid(row=2, column=1)
         window.mainloop()
     def main(self):

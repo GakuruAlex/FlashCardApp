@@ -1,7 +1,6 @@
 from random import choice
 from time import strftime, gmtime
 from pandas import  read_csv
-from score_board import ScoreBoard
 
 class FlashCard:
     TITLE= ("Ariel", 10, "italic")
@@ -15,15 +14,15 @@ class FlashCard:
         self.data_dict = {}
         self.flash_cards()
         self.countdown = None
+    def get_scorecard(self):
+        from score_board import ScoreBoard
+        return  ScoreBoard( self.window, self.timer, self.canvas, self.back_image, self.front_image)
     def flash_cards(self):
         data = read_csv("./data/french_words.csv")
         self.data_dict = {row.French:row.English for index,row in data.iterrows()}
     def start_countdown(self):
         if self.countdown is not None:
             self.window.after_cancel(self.countdown)
-        else:
-            #Prompt user for name
-            ScoreBoard(window=self.window)
         self.time_countdown(10)
 
     def time_countdown(self, new_time):
