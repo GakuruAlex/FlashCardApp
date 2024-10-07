@@ -5,6 +5,7 @@ class ScoreBoard(FlashCard):
     def __init__(self, window, timer, canvas, back_image,front_image):
         super().__init__( window, timer, canvas, back_image,front_image)
         self.data = {}
+        self.window = window
         self.name = self.get_name()
         self.scores = []
         self.score = 0
@@ -18,7 +19,7 @@ class ScoreBoard(FlashCard):
     def get_name(self):
         name = simpledialog.askstring(title="Name",prompt="Enter your Name", parent=self.window)
         if name in self.data:
-            answer = messagebox.askyesno(title="Name Exists", message="Name already exists do you want to change it ?")
+            answer = messagebox.askyesno(title="Name Exists", message="Name already exists do you want to change it ?", parent= self.window)
             if answer == "yes":
                 self.get_name()
             else:
