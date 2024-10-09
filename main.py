@@ -1,9 +1,8 @@
 from flash_card import FlashCard
+from ui import UI
 
 def main():
-    flashcard = FlashCard()
-    flashcard.ui()
-    flashcard.display_front_card()
-    
+    ui = UI()
+    ui.ui()
 if __name__ == "__main__":
     main()
