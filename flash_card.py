@@ -18,8 +18,14 @@ class FlashCard():
         self.cards = {row.French : row.English for index, row in data.iterrows()}
     def display_front_card(self):
         self.french = choice(list(self.cards.keys()))
-        self.front_image = PhotoImage(file="/home/aleyg/projects/Python/100DaysOfCode/DayThirty/FlashCardApp/images/card_front.png", master=self.canvas)
+        self.front_image = PhotoImage(file="./images/card_front.png", master=self.canvas)
         self.canvas.create_image(400, 280, image=self.front_image)
         self.canvas.create_text(400, 100, text=f"FRENCH", font=self.TITLE_FONT)
         self.canvas.create_text(400, 200, text=f"{self.french}", font=self.CONTENT_FONT)
-
+        self.window.after(2000, self.display_back_card)
+    def display_back_card(self):
+        self.english = self.cards[self.french]
+        self.back_image = PhotoImage(file="./images/card_back.png", master=self.canvas)
+        self.canvas.create_image(400, 280, image=self.back_image)
+        self.canvas.create_text(400, 100, text=f"ENGLISH", font=self.TITLE_FONT)
+        self.canvas.create_text(400, 200, text=f"{self.english}", font=self.CONTENT_FONT)
