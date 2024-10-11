@@ -18,7 +18,6 @@ class UI:
         #canvas for the cards
         self.canvas = Canvas(width=self.CANVAS_WIDTH, height = self.CANVAS_HEIGHT, bg=self.BACKGROUND_COLOR)
         self.canvas.grid(row=0, column=0, columnspan=2, pady=20)
-
         flashcard = FlashCard(window=self.window, canvas = self.canvas)
         self.window.mainloop()
 
