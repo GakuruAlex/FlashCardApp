@@ -1,14 +1,12 @@
 from pandas import read_csv
 from tkinter import PhotoImage
 from random import choice
-from ui import UI
-class FlashCard(UI):
+class FlashCard():
     TITLE_FONT = ("Serif", 40, "bold")
     CONTENT_FONT = ("Serif", 24, "normal")
-    def __init__(self, ):
-        super().__init__( )
-        #self.window = window
-        #self.canvas = canvas
+    def __init__(self, window, canvas ):
+        self.window = window
+        self.canvas = canvas
         self.cards = {}
         self.english = None
         self.french = None
