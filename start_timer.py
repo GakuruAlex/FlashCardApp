@@ -25,3 +25,7 @@ class Timer():
             self.window.after(1000, self.run_timer, seconds - 1)
         elif seconds == 0:
             self.flashcard.display_back_card()
+            self.window.after(2000, self.check_for_cards)
+    def check_for_cards(self):
+        if len(self.flashcard.cards) >0:
+                self.start_timer()

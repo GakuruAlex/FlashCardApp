@@ -20,6 +20,7 @@ class FlashCard():
     def display_back_card(self):
         self.english = self.cards[self.french]
         self.create_card(file= "./images/card_back.png",location=(400, 100),text="ENGLISH", text_content=self.english )
+        del self.cards[self.french]
     def create_card(self, file,location, text, text_content):
         self.canvas.delete("all")
         self.image = PhotoImage(file=file, master=self.canvas)
