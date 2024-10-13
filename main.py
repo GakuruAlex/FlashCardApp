@@ -1,8 +1,8 @@
-from flash_card import FlashCard
-from ui import UI
+#from flash_card import FlashCard
 
+from start_timer import Timer
 def main():
-    ui = UI()
-    ui.ui()
+    timer = Timer()
+    
 if __name__ == "__main__":
     main()

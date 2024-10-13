@@ -1,20 +1,21 @@
-from pandas import read_csv, DataFrame
+from pandas import read_csv
 from tkinter import PhotoImage
 from random import choice
-
-class FlashCard():
+from ui import UI
+class FlashCard(UI):
     TITLE_FONT = ("Serif", 40, "bold")
     CONTENT_FONT = ("Serif", 24, "normal")
-    def __init__(self, window, canvas, ):
-        self.window = window
-        self.canvas = canvas
+    def __init__(self, ):
+        super().__init__( )
+        #self.window = window
+        #self.canvas = canvas
         self.cards = {}
         self.english = None
         self.french = None
         self.get_data()
-        self.display_front_card()
+        #self.display_front_card()
     def get_data(self):
-        data = DataFrame(read_csv("./data/french_words.csv"))
+        data = read_csv("./data/french_words.csv")
         self.cards = {row.French : row.English for index, row in data.iterrows()}
     def display_front_card(self):
         self.french = choice(list(self.cards.keys()))
