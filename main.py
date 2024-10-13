@@ -7,8 +7,8 @@ def main():
     canvas = ui.get_window_and_canvas()["canvas"]
     flashcard = FlashCard(window=window, canvas=canvas)
     timer = Timer(window=window, canvas=canvas)
-    timer.timer()
-    flashcard.display_front_card()
+    timer.timer_ui()
+    timer.start_timer()
     ui.start()
 if __name__ == "__main__":
     main()
