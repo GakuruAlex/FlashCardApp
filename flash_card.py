@@ -11,14 +11,12 @@ class FlashCard():
         self.english = None
         self.french = None
         self.get_data()
-        #self.display_front_card()
     def get_data(self):
         data = read_csv("./data/french_words.csv")
         self.cards = {row.French : row.English for index, row in data.iterrows()}
     def display_front_card(self):
         self.french = choice(list(self.cards.keys()))
         self.create_card(file="./images/card_front.png", location=(400, 100), text="FRENCH", text_content=self.french)
-        self.window.after(2000, self.display_back_card)
     def display_back_card(self):
         self.english = self.cards[self.french]
         self.create_card(file= "./images/card_back.png",location=(400, 100),text="ENGLISH", text_content=self.english )
