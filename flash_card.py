@@ -14,18 +14,17 @@ class FlashCard():
         self.get_data()
     def get_data(self):
         try:
-            data = read_csv(".data/words_to_learn.csv")
+            data = read_csv("./data/words_to_learn.csv")
         except FileNotFoundError:
-            data = read_csv("./data/french_words.csv")
-        finally:
-            self.cards = {row.French : row.English for index, row in data.iterrows()}
+            data = read_csv("/home/aleyg/projects/Python/100DaysOfCode/DayThirty/FlashCardApp/data/french_words.csv")
+        self.cards = {row.French : row.English for index, row in data.iterrows()}
     def display_front_card(self):
         self.french = choice(list(self.cards.keys()))
-        self.create_card(file="./images/card_front.png", location=(400, 100), text="FRENCH", text_content=self.french)
+        self.create_card(file="/home/aleyg/projects/Python/100DaysOfCode/DayThirty/FlashCardApp/images/card_front.png", location=(400, 100), text="FRENCH", text_content=self.french)
     def display_back_card(self):
         self.english = self.cards[self.french]
-        self.create_card(file= "./images/card_back.png",location=(400, 100),text="ENGLISH", text_content=self.english )
-        self.counter += 1
+        self.create_card(file= "/home/aleyg/projects/Python/100DaysOfCode/DayThirty/FlashCardApp/images/card_back.png",location=(400, 100),text="ENGLISH", text_content=self.english )
+
     def create_card(self, file,location, text, text_content):
         self.canvas.delete("all")
         self.image = PhotoImage(file=file, master=self.canvas)
@@ -35,3 +34,5 @@ class FlashCard():
         self.canvas.create_image(x_cor, y_cor + image_adjust, image= self.image)
         self.canvas.create_text(x_cor, y_cor, text=text, font=self.TITLE_FONT )
         self.canvas.create_text(x_cor, y_cor + second_text_adjust, text= text_content, font=self.CONTENT_FONT)
+    def check_for_cards(self):
+        return len(self.cards) > self.counter
