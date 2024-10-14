@@ -7,20 +7,25 @@ class FlashCard():
     def __init__(self, window, canvas ):
         self.window = window
         self.canvas = canvas
+        self.counter = 0
         self.cards = {}
         self.english = None
         self.french = None
         self.get_data()
     def get_data(self):
-        data = read_csv("./data/french_words.csv")
-        self.cards = {row.French : row.English for index, row in data.iterrows()}
+        try:
+            data = read_csv(".data/words_to_learn.csv")
+        except FileNotFoundError:
+            data = read_csv("./data/french_words.csv")
+        finally:
+            self.cards = {row.French : row.English for index, row in data.iterrows()}
     def display_front_card(self):
         self.french = choice(list(self.cards.keys()))
         self.create_card(file="./images/card_front.png", location=(400, 100), text="FRENCH", text_content=self.french)
     def display_back_card(self):
         self.english = self.cards[self.french]
         self.create_card(file= "./images/card_back.png",location=(400, 100),text="ENGLISH", text_content=self.english )
-        del self.cards[self.french]
+        self.counter += 1
     def create_card(self, file,location, text, text_content):
         self.canvas.delete("all")
         self.image = PhotoImage(file=file, master=self.canvas)
