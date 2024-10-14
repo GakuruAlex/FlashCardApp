@@ -25,9 +25,9 @@ class Timer():
             self.timer_id = self.window.after(1000, self.run_timer, seconds - 1)
         elif seconds == 0:
             self.flashcard.display_back_card()
-            self.window.after(2000, self.check_for_cards)
+            self.window.after(4000, self.check_for_cards)
     def check_for_cards(self):
-        if len(self.flashcard.cards) >0:
+        if len(self.flashcard.cards) > self.flashcard.counter:
                 self.start_timer()
     def cancel_current(self):
         self.window.after_cancel(self.timer_id)
