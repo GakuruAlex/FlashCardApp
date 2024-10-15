@@ -16,9 +16,11 @@ class ToLearn:
     def add_words_to_learn(self)->None:
         """_Update the words to learn dictionary with the current french english pair _
         """
-        self.words_to_learn.update(self.timer.words_combo)
-        if self.timer.check_if_to_save:
-            self.save_words_to_learn()
+        print(f"{self.timer.words_combo}")
+        if not self.check_if_word_in_dict():
+            self.words_to_learn.update(self.timer.words_combo)
+            if self.timer.check_if_to_save():
+                self.save_words_to_learn()
     def save_words_to_learn(self,)->None:
         """_Create a data frame of the words to learn dict and save to words to learn csv_
         """
@@ -52,3 +54,11 @@ class ToLearn:
         """_Button with right icon_
         """
         self.create_button(name=self.right,file="./images/right.png", run = self.right_button , row= 2, col= 1)
+    def check_if_word_in_dict(self)-> bool:
+        """_Check if French word exists in the words_to_learn dict before updating it_
+
+        Returns:
+            _bool_: _True if word already in words to learn else False_
+        """
+        for french_word in self.timer.words_combo.keys():
+            return french_word in list(self.words_to_learn.keys())
