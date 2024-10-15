@@ -1,7 +1,6 @@
 from pandas import read_csv
 from tkinter import PhotoImage
 from random import choice
-import inspect
 class FlashCard():
     TITLE_FONT = ("Serif", 40, "bold")
     CONTENT_FONT = ("Serif", 24, "normal")
@@ -11,9 +10,10 @@ class FlashCard():
         self.canvas = canvas
         self.french= None
         self.english= None
-        self.counter = 0
+        self.counter = 1
         self.cards = {}
         self.words = {}
+        self.length = 0
         self.all_cards =[]
         if self.main_class:
             self.get_data()
@@ -47,8 +47,7 @@ class FlashCard():
         self.canvas.create_text(x_cor, y_cor, text=text, font=self.TITLE_FONT )
         self.canvas.create_text(x_cor, y_cor + second_text_adjust, text= text_content, font=self.CONTENT_FONT)
     def check_for_cards(self):
-        
-        return len(self.cards) > self.counter
-  
+        self.length = len(self.cards)
+        return self.length >= self.counter
 
 
