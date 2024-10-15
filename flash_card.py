@@ -23,7 +23,7 @@ class FlashCard():
         try:
                 data = read_csv("./data/words_to_learn.csv")
         except FileNotFoundError:
-                data = read_csv("/home/aleyg/projects/Python/100DaysOfCode/DayThirty/FlashCardApp/data/french_words.csv")
+                data = read_csv("./data/french_words.csv")
         finally:
                 self.cards = {row.French : row.English for index, row in data.iterrows()}
     def get_card(self) -> dict:
