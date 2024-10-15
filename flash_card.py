@@ -5,7 +5,7 @@ import inspect
 class FlashCard():
     TITLE_FONT = ("Serif", 40, "bold")
     CONTENT_FONT = ("Serif", 24, "normal")
-    def __init__(self, window, canvas, main_class= True ):
+    def __init__(self, window, canvas, main_class= False ):
         self.main_class = main_class
         self.window = window
         self.canvas = canvas
