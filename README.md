@@ -4,6 +4,12 @@
 
 This Python application helps you learn a new language by displaying flashcards with the word in one language on the front and its translation in the other language on the back. You can customize the application with your own flashcards stored in a CSV file.
 
+## Features ##
+
+1)Displays flashcards with French words on the front and English translations on the back.
+2) Keep track of viewed words to avoid repetition.
+3)Allows customization when provided with custom csv.
+
 ## Prerequisite ##
 
 1)Clone this repo
@@ -38,9 +44,13 @@ With the virtual env activated
        pip install -r requirements.txt*
    ```
 
-### Usage ###
+## Usage ##
 
 From the project dir Run
     ```bash
        python main.py
     ```
+
+## License ##
+
+This application is provided under the MIT license. See the LICENSE file for details.
