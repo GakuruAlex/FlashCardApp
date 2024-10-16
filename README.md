@@ -9,7 +9,6 @@ This Python application helps you learn a new language by displaying flashcards 
 1)Clone this repo
 
 ```bash
-
    git clone <https://github.com/GakuruAlex/FlashCardApp.git>
 ```
 
@@ -27,7 +26,7 @@ This Python application helps you learn a new language by displaying flashcards 
 
 4)Activate the virtual env
 
-```python
+```bash
    source myvenv/bin/activate
 ```
 
@@ -45,4 +44,3 @@ From the project dir Run
     ```bash
        python main.py
     ```
-
