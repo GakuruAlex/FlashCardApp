@@ -27,3 +27,10 @@ This Python application helps you learn a new language by displaying flashcards 
 With the virtual env activated, Run
 
    pip install -r requirements.txt
+
+### Usage ###
+
+From the project dir
+Run
+
+    python main.py
