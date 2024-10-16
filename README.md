@@ -9,12 +9,12 @@ This Python application helps you learn a new language by displaying flashcards 
 1)Clone this repo
 
 ```markdown
-   Run command git clone <https://github.com/GakuruAlex/FlashCardApp.git>
+   git clone <https://github.com/GakuruAlex/FlashCardApp.git>
 
 2)Navigate to the project folder
 
     ```markdown
-       Run cd FlashCardApp
+       cd FlashCardApp
 3)Instal a virtual environment for the Project
     ```markdown
        python -m venv myvenv
@@ -27,7 +27,7 @@ This Python application helps you learn a new language by displaying flashcards 
 
 With the virtual env activated
     ```markdown
-       Run command pip install -r requirements.txt*
+       pip install -r requirements.txt*
 
 ### Usage ###
 
