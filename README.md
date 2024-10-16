@@ -14,13 +14,18 @@ This Python application helps you learn a new language by displaying flashcards 
 
 2)Navigate to the project folder
 
-```ubuntu
+```python
      cd FlashCardApp
+```
 
 3)Instal a virtual environment for the Project
+
 ```python
-       python -m venv myvenv
+   python -m venv myvenv
+```
+
 4)Activate the virtual env
+
 ```python
    source myvenv/bin/activate
 ```
@@ -39,3 +44,8 @@ From the project dir
     Run
     ```python
        Run python main.py
+    ```
+
+### Author ###
+
+This project was created by [Gakuru Alex](https://github.com/GakuruAlex).
