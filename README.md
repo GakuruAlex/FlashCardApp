@@ -6,24 +6,24 @@ This Python application helps you learn a new language by displaying flashcards 
 
 ## Prerequisite ##
 
-Clone this repo
+1)Clone this repo
 
-git clone <https://github.com/GakuruAlex/FlashCardApp.git>
+  git clone <https://github.com/GakuruAlex/FlashCardApp.git>
 
-Navigate to the project folder
+2)Navigate to the project folder
 
-cd FlashCardApp
+   cd FlashCardApp
 
-Instal a virtual environment for the Project
+3)Instal a virtual environment for the Project
 
-python -m venv myvenv
+   python -m venv myvenv
 
-Activate the virtual env
+4)Activate the virtual env
 
-source myvenv/bin/activate
+   source myvenv/bin/activate
 
 ## Installing ##
 
 With the virtual env activated, Run
 
-pip install -r requirements.txt
+   pip install -r requirements.txt
