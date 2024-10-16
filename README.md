@@ -7,39 +7,41 @@ This Python application helps you learn a new language by displaying flashcards 
 ## Prerequisite ##
 
 1)Clone this repo
-    Run
 
-```markdown
+```bash
 
    git clone <https://github.com/GakuruAlex/FlashCardApp.git>
+```
 
 2)Navigate to the project folder
 
-    ```markdown
+```bash
        cd FlashCardApp
-    ```
+```
 
 3)Instal a virtual environment for the Project
-```python
+
+```bash
        python -m venv myvenv
 ```
+
 4)Activate the virtual env
+
 ```python
-   source myvenv/bin/activate 
+   source myvenv/bin/activate
 ```
 
 ## Installing ##
 
 With the virtual env activated
 
-    ```markdown
+   ```markdown
        pip install -r requirements.txt*
-
-
+   ```
 
 ### Usage ###
 
-From the project dir
-    Run
-    ```python
+From the project dir Run
+    ```bash
        python main.py
+    ```
